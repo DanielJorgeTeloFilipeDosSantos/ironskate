@@ -39,4 +39,10 @@ router.get('/user', (req, res, next) =>{
   res.render('/user');
 });
 
+router.post("/logout", (req, res, next) => {
+  req.session.destroy(err => {
+    res.redirect("/signin");
+  });
+});
+
 module.exports = router;
