@@ -39,7 +39,7 @@ app.use(sassMiddleware({
 
 const indexRouter = require('./routes/index');
 const spotsRouter = require('./routes/map');
-const usersRouter = require('./routes/user');
+const usersRouter = require('./routes/authentication');
 const usersUpdateRouter = require('./routes/userUpdate');
 const createSpotRouter = require('./routes/createSpot');
 
