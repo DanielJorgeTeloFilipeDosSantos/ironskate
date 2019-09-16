@@ -40,12 +40,14 @@ app.use(sassMiddleware({
 const indexRouter = require('./routes/index');
 const spotsRouter = require('./routes/map');
 const usersRouter = require('./routes/user');
+const usersUpdateRouter = require('./routes/userUpdate');
 
 
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/map', spotsRouter);
+app.use('/userUpdate', usersUpdateRouter);
 
 //---------------------------------------------------------------------- routes ------------------- routes ----------------
 
