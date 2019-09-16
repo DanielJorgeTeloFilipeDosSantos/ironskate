@@ -5,15 +5,25 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  latitude: {
+  name: {
   },
-  longitude: {
+  lat: {
+  },
+  lng: {
   },
   description: {
   },
-  image: {
+  pictures: {
   },
-  video: {
+  videos: {
+  },
+  createdAt: {
+  },
+  updatedAt: {
+  },
+  user_id: {
+  },
+  username: {
   }
 });
 
