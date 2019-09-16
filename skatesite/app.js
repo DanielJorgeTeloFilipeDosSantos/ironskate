@@ -9,6 +9,7 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 //adicionado
 const hbs = require('hbs');
+const bcrypt = require('bcrypt');
 const path = require('path');
 const indexRouter = require('./routes/index');
 // const spotsRouter = require('./routes/map');
