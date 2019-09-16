@@ -11,9 +11,7 @@ const serveFavicon = require('serve-favicon');
 const hbs = require('hbs');
 const bcrypt = require('bcrypt');
 const path = require('path');
-const indexRouter = require('./routes/index');
-// const spotsRouter = require('./routes/map');
-const usersRouter = require('./routes/user');
+
 
 const app = express();
 
@@ -36,9 +34,20 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 
+
+//routes -------------------------------------------------------------- routes -------------------- routes ----------------
+
+const indexRouter = require('./routes/index');
+const spotsRouter = require('./routes/map');
+const usersRouter = require('./routes/user');
+
+
+
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
-// app.use('/spots', spotsRouter);
+app.use('/map', spotsRouter);
+
+//---------------------------------------------------------------------- routes ------------------- routes ----------------
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
