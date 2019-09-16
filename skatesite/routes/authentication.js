@@ -10,17 +10,14 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  const username = req.body.username;
+  // const username = req.body.username;
   const email = req.body.email;
-  const passwordHash = req.body.password;
-  User.signUp(username, email, passwordHash)
+  const password = req.body.password;
+  User.signUp(email, password)
     .then(user => {
-      req.session.user = {
-        _id: user._id
-      };
       console.log('Signed up user', user);
-      res.redirect('index');
-      // res.render('user');
+      res.redirect('/');
+   
     })
     .catch(error => {
       console.log('Error during sign-up process', error);
@@ -37,9 +34,9 @@ router.post('/signin', (req, res, next) => {
   const passwordHash = req.body.password;
   User.signIn(email, passwordHash)
     .then(() => {
-      console.log('Signed in user', user);
-      res.redirect('index');
-      // res.render('index');
+      console.log('Signed in user');
+      res.redirect('/');
+  
     })
     .catch(error => {
       console.log('Error during sign-in process', error);
@@ -47,9 +44,10 @@ router.post('/signin', (req, res, next) => {
 });
 
 
-router.post('/sign-out', (req, res, next) => {
-  req.logout();
-  res.redirect('/');
+router.post("/logout", (req, res, next) => {
+  req.session.destroy(err => {
+    res.redirect("/signin");
+  });
 });
 
 module.exports = router;
