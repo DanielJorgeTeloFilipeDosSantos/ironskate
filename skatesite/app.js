@@ -7,8 +7,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
-
+//adicionado
+const hbs = require('hbs');
+const path = require('path');
 const indexRouter = require('./routes/index');
+// const spotsRouter = require('./routes/map');
 const usersRouter = require('./routes/user');
 
 const app = express();
@@ -16,6 +19,8 @@ const app = express();
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials')
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,6 +37,7 @@ app.use(sassMiddleware({
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+// app.use('/spots', spotsRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
