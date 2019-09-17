@@ -42,6 +42,7 @@ const spotsRouter = require('./routes/map');
 const usersRouter = require('./routes/authentication');
 const usersUpdateRouter = require('./routes/userUpdate');
 const createSpotRouter = require('./routes/createSpot');
+const singlespotRouter = require('./routes/singlespot');
 
 
 
@@ -50,6 +51,7 @@ app.use('/user', usersRouter);
 app.use('/map', spotsRouter);
 app.use('/userUpdate', usersUpdateRouter);
 app.use('/createSpot', createSpotRouter);
+app.use('/singlespot', singlespotRouter);
 
 //---------------------------------------------------------------------- routes ------------------- routes ----------------
 
