@@ -6,25 +6,44 @@ const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
   name: {
+    type: String,
+    required: true
   },
   lat: {
+    type: Number
   },
   lng: {
+    type: Number
   },
   description: {
+    type: String
   },
   pictures: {
-  },
-  videos: {
-  },
-  createdAt: {
-  },
-  updatedAt: {
-  },
-  user_id: {
-  },
-  username: {
+    description: {
+      type: String,
+      trim: true
+    },
+    url: {
+      type: String,
+      trim: true
+    },
+    path: {
+      type: String,
+      trim: true
+    }
   }
+  // videos: {
+  // },
+  // user_id: { 
+  //   type: String,
+  //   required: true
+  // },
+  // username: {
+  //   type: String,
+  //   required: true
+  // }
+}, {
+  timestamps: true
 });
 
 const Spots = mongoose.model('Spots', schema);

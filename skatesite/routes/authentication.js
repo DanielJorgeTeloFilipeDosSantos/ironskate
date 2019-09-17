@@ -31,8 +31,8 @@ router.get('/signin', (req, res, next) => {
 
 router.post('/signin', (req, res, next) => {
   const email = req.body.email;
-  const passwordHash = req.body.password;
-  User.signIn(email, passwordHash)
+  const password = req.body.password;
+  User.signIn(email, password)
     .then(() => {
       console.log('Signed in user');
       res.redirect('/');
