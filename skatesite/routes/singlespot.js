@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-router.get('/spots', (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('singlespot');
 });
 
