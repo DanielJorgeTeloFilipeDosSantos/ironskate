@@ -1,29 +1,34 @@
 <div class='container'>
     <h1>Create your spot</h1>
 </div>
-<form>
+<form method="POST" action="">
   <div class="form-group">
-    <label for="exampleInputEmail1">Spot Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-    <div class="form-group">
-    <label for="exampleInputEmail1">Spot Location</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-    <div class="form-group">
-    <label for="exampleInputEmail1">Spot Image</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="spotName">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Spot Name">
+    <small id="emailHelp" class="form-text text-muted">Spot Name</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Spot Coordenades </label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="adress">Adress</label>
+    <input type="text" name:"adress" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adress">
+    <small id="emailHelp" class="form-text text-muted">Adress</small>
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="form-group">
+    <label for="latitude">Latitude</label>
+    <input type="email" name="lat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Latitude">
+    <small id="emailHelp" class="form-text text-muted">Latitude</small>
   </div>
+  <div class="form-group">
+    <label for="longitude">Longitude</label>
+    <input type="password" name="lng" class="form-control" id="exampleInputPassword1" placeholder="Longitude">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+  </div>
+  <article>
+    <label for="files">Select multiple files: </label>
+    <input id="files" type="file" multiple/>
+    <output id="result" />
+  </article>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

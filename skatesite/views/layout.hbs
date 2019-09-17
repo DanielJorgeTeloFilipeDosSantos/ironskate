@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <script src="./../public/scripts/selectMultipleFiles.js"></script>
     <link rel='stylesheet' href='/styles/style.css' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -26,11 +27,14 @@
                     <a class="nav-link" href="/userUpdate/update">Update Your info</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/map/mapcanvas">Map</a>
+                    <a class="nav-link" href="/map/mapcanvas">map</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/createSpot/create">Create a Spot</a>
+                    <a class="nav-link" href="/createSpot/create">create a Spot</a>
                 </li>
+                <form method="POST" action="/user/signout">
+                    <button class="btn">Sign Out</button>
+                </form>
             </ul>
         </div>
     </nav>

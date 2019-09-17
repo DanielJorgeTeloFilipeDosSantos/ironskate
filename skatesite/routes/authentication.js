@@ -33,7 +33,7 @@ router.post('/signin', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   User.signIn(email, password)
-    .then(() => {
+    .then(user => {
       console.log('Signed in user');
       res.redirect('/');
   
@@ -44,10 +44,9 @@ router.post('/signin', (req, res, next) => {
 });
 
 
-router.post("/logout", (req, res, next) => {
-  req.session.destroy(err => {
-    res.redirect("/signin");
-  });
+router.post("/signout", (req, res, next) => {
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = router;
