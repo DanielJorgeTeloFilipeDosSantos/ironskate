@@ -16,11 +16,11 @@ router.post('/signup', (req, res, next) => {
   User.signUp(email, password)
     .then(user => {
       console.log('Signed up user', user);
-      res.redirect('/');
-   
+      res.redirect('/'); 
     })
     .catch(error => {
       console.log('Error during sign-up process', error);
+      res.redirect('signup'); 
     });
 });
 
@@ -36,17 +36,18 @@ router.post('/signin', (req, res, next) => {
     .then(user => {
       console.log('Signed in user');
       res.redirect('/');
-  
     })
     .catch(error => {
       console.log('Error during sign-in process', error);
+      res.redirect('signin');
     });
 });
 
 
 router.post("/signout", (req, res, next) => {
-  req.session.destroy();
-  res.redirect("/");
+  req.session.destroy(err => {
+    res.redirect("/");
+  });
 });
 
 module.exports = router;
