@@ -15,6 +15,9 @@ router.post('/signup', (req, res, next) => {
   const password = req.body.password;
   User.signUp(email, password)
     .then(user => {
+      req.session.user = {
+        _id: user._id
+      };
       console.log('Signed up user', user);
       res.redirect('/'); 
     })
@@ -34,7 +37,10 @@ router.post('/signin', (req, res, next) => {
   const password = req.body.password;
   User.signIn(email, password)
     .then(user => {
-      console.log('Signed in user');
+      req.session.user = {
+        _id: user._id
+      };
+      console.log('Signed in user', req.session);
       res.redirect('/');
     })
     .catch(error => {
@@ -45,9 +51,8 @@ router.post('/signin', (req, res, next) => {
 
 
 router.post("/signout", (req, res, next) => {
-  req.session.destroy(err => {
-    res.redirect("/");
-  });
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = router;
